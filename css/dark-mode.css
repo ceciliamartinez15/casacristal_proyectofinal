@@ -1,0 +1,66 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg: #2d2d2d;
+    --dark-color: #121212;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode nav ul li a {
+    color: var(--text-light);
+}
+
+body.dark-mode .feature-card,
+body.dark-mode .mission,
+body.dark-mode .vision,
+body.dark-mode .value-card,
+body.dark-mode .gallery-item,
+body.dark-mode .team-member,
+body.dark-mode .video-card,
+body.dark-mode .activity-card,
+body.dark-mode .join-team,
+body.dark-mode .video-channel {
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode tr:nth-child(even) {
+    background-color: #333;
+}
+
+body.dark-mode tr:hover {
+    background-color: #444;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select,
+body.dark-mode .filter-btn,
+body.dark-mode .tab-btn,
+body.dark-mode .category-btn {
+    background-color: #333;
+    color: var(--text-light);
+    border-color: #444;
+}
+
+body.dark-mode .filter-btn.active,
+body.dark-mode .tab-btn.active,
+body.dark-mode .category-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+body.dark-mode .schedule,
+body.dark-mode .position,
+body.dark-mode .bio,
+body.dark-mode .video-card p,
+body.dark-mode .description,
+body.dark-mode .activity-meta {
+    color: #bbb;
+}
