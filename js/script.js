@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Validación básica del email en el formulario de contacto
   const form = document.getElementById('contactForm');
   const emailInput = document.getElementById('email');
 
@@ -11,26 +12,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  form.addEventListener('submit', validarEmail);
-});
-document.addEventListener("DOMContentLoaded", function () {
-    // Encuentra todos los labels cuyo input es requerido
-    const labels = document.querySelectorAll("form label");
+  if (form && emailInput) {
+    form.addEventListener('submit', validarEmail);
+  }
 
-    labels.forEach(label => {
-        const inputId = label.getAttribute("for");
-        const input = document.getElementById(inputId);
+  // Añadir asterisco rojo en labels de inputs requeridos
+  const labels = document.querySelectorAll("form label");
 
-        if (input && input.hasAttribute("required")) {
-            const asterisk = document.createElement("span");
-            asterisk.textContent = " *";
-            asterisk.style.color = "red";
-            asterisk.classList.add("required");
-            label.appendChild(asterisk);
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', () => {
+  labels.forEach(label => {
+    const inputId = label.getAttribute("for");
+    const input = document.getElementById(inputId);
+
+    if (input && input.hasAttribute("required")) {
+      const asterisk = document.createElement("span");
+      asterisk.textContent = " *";
+      asterisk.style.color = "red";
+      asterisk.classList.add("required");
+      label.appendChild(asterisk);
+    }
+  });
+
   // Tabs funcionales
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -44,7 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Agregar active al botón clickeado y al contenido relacionado
       btn.classList.add('active');
       const tabId = btn.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
+      const tabContent = document.getElementById(tabId);
+      if (tabContent) {
+        tabContent.classList.add('active');
+      }
     });
   });
 
@@ -55,33 +59,39 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('¡Gracias por tu interés en reservar! Pronto nos pondremos en contacto.');
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const openBtn = document.getElementById("openMapOptions");
-    const modal = document.getElementById("mapOptions");
-    const closeBtn = document.getElementById("closeMapOptions");
-    const googleBtn = document.getElementById("openInGoogle");
-    const wazeBtn = document.getElementById("openInWaze");
+  // Modal para opciones de mapa
+  const openBtn = document.getElementById("openMapOptions");
+  const modal = document.getElementById("mapOptions");
+  const closeBtn = document.getElementById("closeMapOptions");
+  const googleBtn = document.getElementById("openInGoogle");
+  const wazeBtn = document.getElementById("openInWaze");
 
-    // Enlaces exactos
+  // Enlaces exactos
+  if (googleBtn) {
     googleBtn.href = "https://maps.app.goo.gl/qk8Rv9rsSsN94ehM7";
+  }
+  if (wazeBtn) {
     wazeBtn.href = "https://waze.com/ul?q=Cerro%20Verde,%20Santa%20Ana,%20El%20Salvador";
+  }
 
+  if (openBtn && modal && closeBtn) {
     openBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        modal.style.display = "block";
+      e.preventDefault();
+      modal.style.display = "block";
     });
 
     closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
+      modal.style.display = "none";
     });
 
     window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
     });
+  }
 });
+
 
 
